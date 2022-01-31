@@ -1,0 +1,4 @@
+﻿  Controller.cpp
+c:\users\paul\source\repos\taschenrechner_mvc\taschenrechner_mvc\controller.cpp(47): warning C4244: "Argument": Konvertierung von "double" in "int", möglicher Datenverlust
+c:\users\paul\source\repos\taschenrechner_mvc\taschenrechner_mvc\controller.cpp(63): warning C4244: "Argument": Konvertierung von "double" in "int", möglicher Datenverlust
+  Taschenrechner_MVC.vcxproj -> C:\Users\Paul\source\repos\Taschenrechner_MVC\Debug\Taschenrechner_MVC.exe
