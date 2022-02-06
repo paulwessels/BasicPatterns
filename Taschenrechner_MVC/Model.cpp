@@ -3,10 +3,10 @@
 #include <string.h>
 
 
-Model::Model(double result, double firstValue, double secondValue, Operator_e operation)
+Model::Model()
 {
-	this->result = result;
-	this->firstValue = firstValue;
-	this->secondValue = secondValue;
-	this->operation = operation;
+	result = 0;
+	firstValue = 0;
+	secondValue = 0;
+	operation = DEFAULT;
 }

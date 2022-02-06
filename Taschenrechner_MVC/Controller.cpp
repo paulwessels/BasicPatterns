@@ -2,49 +2,65 @@
 #include "View.h"
 #include <iostream>
 
-Controller::Controller()
-{
 
+
+Controller::Controller(Model *model, View *view)
+{
+	this->model = model;
+	this->view = view;
 }
 
-double Controller::calculation(Operator_e operation, double firstValue, double secondValue)
+void Controller::calculateResult()
 {
 	double result = 0;
 
-	switch (operation)
+	switch (model->operation)
 	{
 	case ADDITION:
 	{
-		result = firstValue + secondValue;
+		result = model->firstValue + model->secondValue;
 		break;
 	}
 	case SUBTRACTION:
 	{
-		result = firstValue - secondValue;
+		result = model->firstValue - model->secondValue;
 		break;
 	}
 	case MULTIPLICATION:
 	{
-		result = firstValue * secondValue;
+		result = model->firstValue * model->secondValue;
 		break;
 	}
 	case DIVISION:
 	{
-		result = firstValue / secondValue;
+		result = model->firstValue / model->secondValue;
 		break;
 	}
 	default:
 		break;
 	}
 
-	return result;
+	model->result = result;
 }
 
+void Controller::setFirstValue()
+{
+	model->firstValue = view->readValue();
+}
 
+void Controller::setSecondValue()
+{
+	model->secondValue = view->readValue();
+}
 
+void Controller::setOperation()
+{
+	model->operation = view->readOperation();
+}
 
-
-
-
+double Controller::getResult()
+{
+	return model->result;
+}
 
 

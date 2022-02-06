@@ -2,16 +2,19 @@
 //
 
 #include <iostream>
+class View;
+class Controller;
+class ControllerFactory;
 #include "Model.h"
 #include "Controller.h"
 #include "View.h"
-
+#include "IControllerFactory.h"
 
 int main()
 {
-	Model *model = new Model(0,0,0,DEFAULT);
-	Controller *controller = new Controller();
-	View *view = new View(controller, model);
+	Model *model = new Model();
+	ControllerFactory *controllerFactory = new ControllerFactory();
+	View *view = new View(model, controllerFactory);
 
 	view->actualizeView();
 }

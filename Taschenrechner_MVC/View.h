@@ -1,17 +1,18 @@
 #pragma once
 #include "Controller.h"
+#include "Model.h"
+#include "IControllerFactory.h"
 
+class ControllerFactory;
 class View
 {
 public:
-	View(Controller *Controller, Model *model);
+	View(Model *model, ControllerFactory *controllerFactory);
 	void actualizeView();
-	
-private:
-	Controller *controller;
-	Model *model;
-
-	double setValue();
+	double readValue();
 	Operator_e readOperation();
+private:
+	Model *model;
+	Controller *controller;
 };
 

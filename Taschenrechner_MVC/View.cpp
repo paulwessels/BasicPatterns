@@ -1,13 +1,13 @@
 #include "View.h"
-#include "Controller.h"
-#include "Model.h"
+#include "IControllerFactory.h"
 #include <iostream> 
 #include <string>
 
 
-View::View(Controller *controller, Model *model)
+
+View::View(Model *model, ControllerFactory *controllerFactory)
 {
-	this->controller = controller;
+	this->controller = controllerFactory->createController(model, this);
 	this->model = model;
 }
 
@@ -16,12 +16,12 @@ void View::actualizeView()
 	while (true)
 	{
 		std::cout << "Willkommen bei Powels shitty Taschenrechner,\nbitte gebe eine Zahl ein und bestaetige mit Enter!" << std::endl;
-		model->firstValue = setValue();
+		controller->setFirstValue();
 		std::cout << "Bitte gebe eine Rechenoperation ein, bestaetige mit Enter!" << std::endl;
-		model->operation = readOperation();
+		controller->setOperation();
 		std::cout << "Bitte gebe eine zweite Zahl ein und bestaetige mit Enter!" << std::endl;
-		model->secondValue = setValue();
-		model->result = controller->calculation(model->operation, model->firstValue, model->secondValue);
+		controller->setSecondValue();
+		controller->calculateResult();
 		std::cout << "Das Ergebniss lautet: " << model->result << std::endl;
 		std::cout << "Bestaetige bitte mit einem pinken Einhorn! " << std::endl;
 		getchar();
@@ -30,7 +30,7 @@ void View::actualizeView()
 	}
 }
 
-double View::setValue()
+double View::readValue()
 {
 	double result = 0;
 

@@ -152,12 +152,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="IControllerFactory.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="Taschenrechner_MVC.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="IControllerFactory.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="View.h" />
   </ItemGroup>
